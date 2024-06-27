@@ -110,4 +110,9 @@ equalButton.addEventListener("click", () => {
     //console.log(displayValue);
 });
 
-
+const clearButton = document.querySelector("#clearBtn");
+clearButton.addEventListener("click", () => {
+    display.textContent = "";
+    displayValue = [];
+    //console.log(displayValue);
+});
