@@ -33,82 +33,58 @@ function operate(firstNum, secondNum, operator){
 
 let displayValue = "";
 
-const numberBtns = document.querySelector(".numberBtns");
-const display = document.querySelector("#textField");
-numberBtns.addEventListener("click", (e) => {
-    let target = e.target;
-
-    switch(target.id){
+function populateDisplay(targetId){
+    switch(targetId){
         case "oneBtn":
             display.textContent += "1"; 
-            displayValue += "1";
-            break;
+            return "1";
         case "twoBtn":
             display.textContent += "2";
-            displayValue += "2";
-            break;
+            return "2";
         case "threeBtn":
             display.textContent += "3";
-            displayValue += "3";
-            break;
+            return "3";
         case "fourBtn":
             display.textContent += "4";
-            displayValue += "4";
-            break;
+            return "4";
         case "fiveBtn":
             display.textContent += "5";
-            displayValue += "5";
-            break;
+            return "5";
         case "sixBtn":
             display.textContent += "6";
-            displayValue += "6";
-            break;
+            return "6";
         case "sevenBtn":
             display.textContent += "7";
-            displayValue += "7";
-            break;
+            return "7";
         case "eightBtn":
             display.textContent += "8";
-            displayValue += "8";
-            break;
+            return "8";
         case "nineBtn":
             display.textContent += "9";
-            displayValue += "9";
-            break;
+            return "9";
         case "zeroBtn":
             display.textContent += "0";
-            displayValue += "0";
-            break;
-    };
-    //console.log(displayValue);
-});
-
-const operatorBtns = document.querySelector(".operatorBtns");
-operatorBtns.addEventListener("click", (e) => {
-    let target = e.target;
-
-    switch (target.id){
+            return "0";
         case "plusBtn":
             display.textContent += " + ";
-            displayValue += " + ";
-            break;
+            return " + ";
         case "minusBtn":
             display.textContent += " - ";
-            displayValue += " - ";
-            break;
+            return " - ";
         case "multiplyBtn":
             display.textContent += " * ";
-            displayValue += " * ";
-            break;
+            return " * ";
         case "divideBtn":
             display.textContent += " / ";
-            displayValue += " / ";
-            break;                                    
+            return " / ";  
     };
+}
+
+const buttons = document.querySelector(".buttons");
+const display = document.querySelector("#textField");
+buttons.addEventListener("click", (e) => {
+    let target = e.target;
+    displayValue += populateDisplay(target.id);
     //console.log(displayValue);
 });
 
-
-function populateDisplay(){
-
-}
