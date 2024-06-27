@@ -31,12 +31,61 @@ function operate(firstNum, secondNum, operator){
     };
 }
 
-// Test cases
-console.log(operate(1,2, "+")); // 3 
-console.log(operate(0,0, "+")); // 0
-console.log(operate(4,2, "-")); // 2
-console.log(operate(5,10, "-")); // -5
-console.log(operate(1,2, "*")); // 2
-console.log(operate(10,0, "*")); // 0
-console.log(operate(2,0, "/")); // Infinity
-console.log(operate(16,4, "/")); // 4
+let displayValue = "";
+
+const numbers = document.querySelector(".numberBtns");
+const display = document.querySelector("#textField");
+numbers.addEventListener("click", (e) => {
+    let target = e.target;
+
+    switch(target.id){
+        case "oneBtn":
+            display.textContent += "1"; 
+            displayValue += "1";
+            break;
+        case "twoBtn":
+            display.textContent += "2";
+            displayValue += "2";
+            break;
+        case "threeBtn":
+            display.textContent += "3";
+            displayValue += "3";
+            break;
+        case "fourBtn":
+            display.textContent += "4";
+            displayValue += "4";
+            break;
+        case "fiveBtn":
+            display.textContent += "5";
+            displayValue += "5";
+            break;
+        case "sixBtn":
+            display.textContent += "6";
+            displayValue += "6";
+            break;
+        case "sevenBtn":
+            display.textContent += "7";
+            displayValue += "7";
+            break;
+        case "eightBtn":
+            display.textContent += "8";
+            displayValue += "8";
+            break;
+        case "nineBtn":
+            display.textContent += "9";
+            displayValue += "9";
+            break;
+        case "zeroBtn":
+            display.textContent += "0";
+            displayValue += "0";
+            break;
+    };
+    //console.log(displayValue);
+})
+
+const operatorBtns = document.querySelector(".operatorBtns");
+
+
+function populateDisplay(){
+
+}
