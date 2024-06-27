@@ -33,9 +33,9 @@ function operate(firstNum, secondNum, operator){
 
 let displayValue = "";
 
-const numbers = document.querySelector(".numberBtns");
+const numberBtns = document.querySelector(".numberBtns");
 const display = document.querySelector("#textField");
-numbers.addEventListener("click", (e) => {
+numberBtns.addEventListener("click", (e) => {
     let target = e.target;
 
     switch(target.id){
@@ -81,9 +81,32 @@ numbers.addEventListener("click", (e) => {
             break;
     };
     //console.log(displayValue);
-})
+});
 
 const operatorBtns = document.querySelector(".operatorBtns");
+operatorBtns.addEventListener("click", (e) => {
+    let target = e.target;
+
+    switch (target.id){
+        case "plusBtn":
+            display.textContent += " + ";
+            displayValue += " + ";
+            break;
+        case "minusBtn":
+            display.textContent += " - ";
+            displayValue += " - ";
+            break;
+        case "multiplyBtn":
+            display.textContent += " * ";
+            displayValue += " * ";
+            break;
+        case "divideBtn":
+            display.textContent += " / ";
+            displayValue += " / ";
+            break;                                    
+    };
+    //console.log(displayValue);
+});
 
 
 function populateDisplay(){
