@@ -1,6 +1,6 @@
 let firstNum = 0;
 let secondNum = 0;
-let operator = "";
+
 
 function add(a, b){
     return a + b;
@@ -32,6 +32,7 @@ function operate(firstNum, secondNum, operator){
 }
 
 let displayValue = [];
+let operator = "";
 
 function populateDisplay(targetId){
     switch(targetId){
@@ -78,20 +79,39 @@ function populateDisplay(targetId){
         case "plusBtn":
             display.textContent += " + ";
             displayValue.push("+");
+            operator = "+";
             break;
         case "minusBtn":
             display.textContent += " - ";
             displayValue.push("-");
+            operator = "-";
             break;
         case "multiplyBtn":
             display.textContent += " * ";
             displayValue.push("*");
+            operator = "*";
             break;
         case "divideBtn":
             display.textContent += " / ";
             displayValue.push("/");
+            operator = "/";
             break;
     };
+}
+
+function createOperands(){
+    let firstNum = "";
+    let secondNum = "";
+    let indexOfOp = displayValue.indexOf(operator);
+    // console.log(indexOfOp);
+
+    for (let i = 0; i < indexOfOp; i++){
+        firstNum += displayValue[i];
+    };
+    for (let j = (indexOfOp + 1); j < displayValue.length; j++){
+        secondNum += displayValue[j];
+    };
+    return [Number(firstNum), Number(secondNum)];
 }
 
 const buttons = document.querySelector(".buttons");
@@ -104,7 +124,8 @@ buttons.addEventListener("click", (e) => {
 
 const equalButton = document.querySelector("#equalBtn");
 equalButton.addEventListener("click", () => {
-    let answer = operate(displayValue[0],displayValue[2],displayValue[1])
+    let [a, b] = createOperands();
+    let answer = operate(a, b, operator);
     display.textContent = answer;
     displayValue = [answer];
     //console.log(displayValue);
