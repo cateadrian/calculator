@@ -1,7 +1,6 @@
 let firstNum = 0;
 let secondNum = 0;
 
-
 function add(a, b){
     return a + b;
 }
@@ -21,13 +20,13 @@ function divide(a, b){
 function operate(firstNum, secondNum, operator){
     switch (operator){
         case "+":
-            return add(firstNum, secondNum);
+            return Math.round(add(firstNum, secondNum) * 100) / 100;
         case "-":
-            return subtract(firstNum, secondNum);
+            return Math.roundd(subtract(firstNum, secondNum) * 100) / 100;
         case "*":
-            return multiply(firstNum, secondNum);
+            return Math.round(multiply(firstNum, secondNum) * 100) / 100;
         case "/":
-            return divide(firstNum, secondNum);
+            return Math.round(divide(firstNum, secondNum) * 100) / 100;
     };
 }
 
