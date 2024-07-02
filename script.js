@@ -129,6 +129,12 @@ equalButton.addEventListener("click", () => {
     if (a === "" || operator === "" || b === ""){
         return;
     };
+    if (b == 0 && operator == "/"){
+        alert("Silly little Hobbit!");
+        display.textContent = "";
+        displayValue = [];
+        return;
+    };
     let answer = operate(a, b, operator);
     display.textContent = answer;
     displayValue = [answer];
