@@ -22,7 +22,7 @@ function operate(firstNum, secondNum, operator){
         case "+":
             return Math.round(add(firstNum, secondNum) * 100) / 100;
         case "-":
-            return Math.roundd(subtract(firstNum, secondNum) * 100) / 100;
+            return Math.round(subtract(firstNum, secondNum) * 100) / 100;
         case "*":
             return Math.round(multiply(firstNum, secondNum) * 100) / 100;
         case "/":
@@ -96,6 +96,7 @@ function populateDisplay(targetId){
             operator = "/";
             break;
     };
+    // console.log(displayValue);
 }
 
 function createOperands(){
@@ -118,21 +119,26 @@ const display = document.querySelector("#textField");
 buttons.addEventListener("click", (e) => {
     let target = e.target;
     populateDisplay(target.id);
-    //console.log(displayValue);
+    // console.log(displayValue);
 });
 
 const equalButton = document.querySelector("#equalBtn");
 equalButton.addEventListener("click", () => {
+
     let [a, b] = createOperands();
+    if (a === "" || operator === "" || b === ""){
+        return;
+    };
     let answer = operate(a, b, operator);
     display.textContent = answer;
     displayValue = [answer];
-    //console.log(displayValue);
+
+    // console.log(displayValue);
 });
 
 const clearButton = document.querySelector("#clearBtn");
 clearButton.addEventListener("click", () => {
     display.textContent = "";
     displayValue = [];
-    //console.log(displayValue);
+    // console.log(displayValue);
 });
